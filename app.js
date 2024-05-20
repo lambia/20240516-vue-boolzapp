@@ -173,10 +173,12 @@ createApp({
         }
     },
     methods: {
+        // Tenere traccia della chat su cui l'utente ha cliccato (grazie al suo indice)
         seleziona(quale) {
             console.log("Seleziono la chat con indice: ", quale);
             this.chatAttiva = quale;
         },
+        // Invio un nuovo messaggio, costruendo prima il relativo oggetto da pushare
         sendMessage() {
             let nuovoMessaggio = {
                 date: '20/05/2024 14:32:51',
@@ -187,6 +189,8 @@ createApp({
             // contacts, all'indice della chat attiva, nella proprietà con l'array dei messaggi, pusho nuovo messaggio
             this.contacts[this.chatAttiva].messages.push(nuovoMessaggio);
         },
+        // Rendi visibili solo i contatti il cui nome inizia con "Alessandro"
+        // Funziona grazie al v-if sui contatti
         findAlex() {
             for (let i = 0; i < this.contacts.length; i++) {
 

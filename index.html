@@ -24,7 +24,11 @@
 
         <div class="left">
             <h2>Contatti:</h2>
+
+            <!-- Pulsante per il search -->
             <button class="btn btn-primary" @click="findAlex">Cerca alessandro</button>
+
+            <!-- Mostro la lista dei contatti -->
             <!-- Ciclo su "contacts", ne ricavo il singolo oggetto "contatto" e il suo indice -->
             <template v-for="contatto, indiceChatDelCiclo in contacts">
                 <div v-if="contatto.visible" @click="seleziona(indiceChatDelCiclo)">
@@ -35,10 +39,14 @@
         </div>
 
         <div class="right">
+
             <!-- Vado dritto alla proprietà name dell'oggetto con la conversazione attiva -->
             <h2>Conversazione attiva: {{ contacts[chatAttiva].name }}</h2>
+
+            <!-- Pulsante invio messaggio -->
             <button class="btn btn-primary" @click="sendMessage">Aggiungi messaggio</button>
 
+            <!-- Mostro la lista messaggi della conversazione attiva -->
             <!-- Ciclo sulla proprietà messages della chat attiva (è un array)
                  ne ricavo il singolo oggetto messaggio -->
             <div v-for="oggettoMessaggio in contacts[chatAttiva].messages">
