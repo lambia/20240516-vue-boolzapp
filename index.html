@@ -34,6 +34,7 @@
         <div class="right">
             <!-- Vado dritto alla proprietà name dell'oggetto con la conversazione attiva -->
             <h2>Conversazione attiva: {{ contacts[chatAttiva].name }}</h2>
+            <button class="btn btn-primary" @click="sendMessage">Aggiungi messaggio</button>
 
             <!-- Ciclo sulla proprietà messages della chat attiva (è un array)
                  ne ricavo il singolo oggetto messaggio -->

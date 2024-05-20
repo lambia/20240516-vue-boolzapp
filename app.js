@@ -176,6 +176,16 @@ createApp({
         seleziona(quale) {
             console.log("Seleziono la chat con indice: ", quale);
             this.chatAttiva = quale;
+        },
+        sendMessage() {
+            let nuovoMessaggio = {
+                date: '20/05/2024 14:32:51',
+                message: 'Queste sono parole a caso?',
+                status: 'sent'
+            };
+
+            // contacts, all'indice della chat attiva, nella proprietà con l'array dei messaggi, pusho nuovo messaggio
+            this.contacts[this.chatAttiva].messages.push(nuovoMessaggio);
         }
 
     },
