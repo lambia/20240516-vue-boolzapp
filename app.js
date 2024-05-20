@@ -186,6 +186,18 @@ createApp({
 
             // contacts, all'indice della chat attiva, nella proprietà con l'array dei messaggi, pusho nuovo messaggio
             this.contacts[this.chatAttiva].messages.push(nuovoMessaggio);
+        },
+        findAlex() {
+            for (let i = 0; i < this.contacts.length; i++) {
+
+                let contatto = this.contacts[i];
+                if (contatto.name.startsWith("Alessandro")) {
+                    contatto.visible = true;
+                } else {
+                    contatto.visible = false;
+                }
+
+            }
         }
 
     },

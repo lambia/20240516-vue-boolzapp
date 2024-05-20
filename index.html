@@ -24,11 +24,14 @@
 
         <div class="left">
             <h2>Contatti:</h2>
+            <button class="btn btn-primary" @click="findAlex">Cerca alessandro</button>
             <!-- Ciclo su "contacts", ne ricavo il singolo oggetto "contatto" e il suo indice -->
-            <div v-for="contatto, indiceChatDelCiclo in contacts" @click="seleziona(indiceChatDelCiclo)">
-                <img :src="contatto.avatar">
-                {{ contatto.name}}
-            </div>
+            <template v-for="contatto, indiceChatDelCiclo in contacts">
+                <div v-if="contatto.visible" @click="seleziona(indiceChatDelCiclo)">
+                    <img :src="contatto.avatar">
+                    {{ contatto.name}}
+                </div>
+            </template>
         </div>
 
         <div class="right">
