@@ -202,6 +202,16 @@ createApp({
                 }
 
             }
+        },
+        // recupero ultimo msg di una chat
+        getLastMessage(i) {
+            const indiceUltimoMess = this.contacts[i].messages.length - 1;
+            const oggettoUltimoMess = this.contacts[i].messages[indiceUltimoMess];
+            const orarioUltimoMess = oggettoUltimoMess.date;
+            const dateUltimoMess = new Date(orarioUltimoMess);
+            // const orarioConvertito = dateUltimoMess.toLocaleTimeString("IT-it");
+            const orarioConvertito = dateUltimoMess.getHours() + ":" + dateUltimoMess.getMinutes();
+            return orarioConvertito;
         }
 
     },

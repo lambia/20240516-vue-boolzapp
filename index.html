@@ -33,7 +33,7 @@
             <template v-for="contatto, indiceChatDelCiclo in contacts">
                 <div v-if="contatto.visible" @click="seleziona(indiceChatDelCiclo)">
                     <img :src="contatto.avatar">
-                    {{ contatto.name}}
+                    {{ contatto.name }} {{ getLastMessage(indiceChatDelCiclo) }}
                 </div>
             </template>
         </div>
@@ -42,6 +42,7 @@
 
             <!-- Vado dritto alla proprietà name dell'oggetto con la conversazione attiva -->
             <h2>Conversazione attiva: {{ contacts[chatAttiva].name }}</h2>
+            <h5>Ultimo messaggio nella chat: {{ getLastMessage(chatAttiva) }}</h5>
 
             <!-- Pulsante invio messaggio -->
             <button class="btn btn-primary" @click="sendMessage">Aggiungi messaggio</button>
