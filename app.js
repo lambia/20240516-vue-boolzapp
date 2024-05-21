@@ -181,7 +181,7 @@ createApp({
         // Invio un nuovo messaggio, costruendo prima il relativo oggetto da pushare
         sendMessage() {
             let nuovoMessaggio = {
-                date: '20/05/2024 14:32:51',
+                date: '05/21/2024 14:32:51',
                 message: 'Queste sono parole a caso?',
                 status: 'sent'
             };
