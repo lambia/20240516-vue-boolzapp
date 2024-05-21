@@ -194,8 +194,10 @@ createApp({
         findAlex() {
             for (let i = 0; i < this.contacts.length; i++) {
 
-                let contatto = this.contacts[i];
-                if (contatto.name.startsWith("Alessandro")) {
+                const contatto = this.contacts[i];
+                const stringaDaCercare = ("aLeSsanDRo").toLowerCase();
+
+                if (contatto.name.toLowerCase().startsWith(stringaDaCercare)) {
                     contatto.visible = true;
                 } else {
                     contatto.visible = false;
