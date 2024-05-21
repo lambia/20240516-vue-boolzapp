@@ -180,14 +180,26 @@ createApp({
         },
         // Invio un nuovo messaggio, costruendo prima il relativo oggetto da pushare
         sendMessage() {
-            let nuovoMessaggio = {
-                date: '05/21/2024 14:32:51',
-                message: 'Queste sono parole a caso?',
-                status: 'sent'
+            const miCopioLaConversazioneAttiva = this.chatAttiva; //perchè non uso direttamente chatAttiva?
+
+            this.newMessage(miCopioLaConversazioneAttiva, "Queste sono parole a caso?", "sent");
+
+            window.setTimeout(() => {
+                this.newMessage(miCopioLaConversazioneAttiva, "Lorem ipsum dolor sit, amet consectetur adipisicing elit!", "received");
+            }, 3000);
+        },
+        //funzione per ricevere o inviare un messaggio in una specifica chat
+        newMessage(conversazione, message, status) {
+            const dataAttuale = new Date();
+
+            const nuovoMessaggio = {
+                date: dataAttuale.toLocaleDateString() + " " + dataAttuale.toLocaleTimeString("IT-it"),
+                message, //---> https://flynn.boolean.careers/exercises/api/random/sentence
+                status
             };
 
-            // contacts, all'indice della chat attiva, nella proprietà con l'array dei messaggi, pusho nuovo messaggio
-            this.contacts[this.chatAttiva].messages.push(nuovoMessaggio);
+            // contacts, all'indice della chat selezionata, nella proprietà con l'array dei messaggi, pusho nuovo messaggio
+            this.contacts[conversazione].messages.push(nuovoMessaggio);
         },
         // Rendi visibili solo i contatti il cui nome inizia con "Alessandro"
         // Funziona grazie al v-if sui contatti
